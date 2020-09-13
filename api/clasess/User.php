@@ -1,5 +1,6 @@
 <?php
 
+include_once ("../clasess/Building.php");
 
 class User
 {
@@ -89,16 +90,24 @@ class User
     }
 
     public function delete_user(){
-        $query = "DELETE from user WHERE id = ?";
-        $obj = $this->conn->prepare($query);
+        $building = new Building($this->conn);
+
+        if ($building->decouple_user_from_building($this->id)) {
+
+            $query = "DELETE from user WHERE id = ?";
+            $obj = $this->conn->prepare($query);
 
 
-        $obj->bind_param("i",$this->id);
+            $obj->bind_param("i",$this->id);
 
-        if($obj->execute()) {
-            return true;
-        } else {}
-        return false;
+            if($obj->execute()) {
+                return true;
+            } else {}
+            return false;
+
+        } else {
+            return false;
+        }
     }
 
 
