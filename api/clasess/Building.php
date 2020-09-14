@@ -75,6 +75,19 @@ class Building
         return false;
     }
 
+    public function decouple_user_from_building($user_id_decouple){
+        $query = "UPDATE building SET user_id = NULL WHERE user_id = ?";
+        $obj = $this->conn->prepare($query);
+        $obj->bind_param("i",$user_id_decouple);
+
+        if($obj->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     public function delete_building(){
         $query = "DELETE from building WHERE id = ?";
         $obj = $this->conn->prepare($query);

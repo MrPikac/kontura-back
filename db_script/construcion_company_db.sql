@@ -3,11 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2020 at 12:21 AM
+-- Generation Time: Sep 14, 2020 at 08:03 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -127,7 +126,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `building`
   ADD CONSTRAINT `FK_user_building` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
