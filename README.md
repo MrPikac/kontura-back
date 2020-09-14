@@ -1,4 +1,8 @@
+# Milos Boskovic 111-10740
+
 # kontura-back
+
+
 
 # Installation steps:
   1. Install XAMPP server with PHP version 7.0 or higher on your local machine in which you want to run the application
